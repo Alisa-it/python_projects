@@ -1,8 +1,9 @@
 #  17. Гипотеза Коллаца
 
 def kollatz(num):
-    count = 1
+    count = 0
     while num != 1:
+        count += 1
         if num % 2 == 0:
             print(f'{count}) {int(num)}/2', end='=')
             num = num / 2
@@ -11,9 +12,10 @@ def kollatz(num):
             print(f'{count}) ({int(num)}*3)+1', end='=')
             num = (num * 3) + 1
             print(int(num))
-        count += 1
-    return f'Мы пришли к 1 через {count} шагов'
+
+    return f'Потребовалось {count} шагов'
 
 
-num = int(input('Введи число: '))
-print(kollatz(num))
+while True:
+    num = int(input('Введи число: '))
+    print(kollatz(num))
